@@ -1,0 +1,19 @@
+
+const String MainRoute = 'Main';
+const String p02ViewRoute = 'p02View';
+const String p03ViewRoute = 'p03View';
+const String p12ViewRoute = 'p12View';
+const String p04ViewRoute = 'p04View';
+const String p13ViewRoute = 'p13View';
+const String p05ViewRoute = 'p05View';
+const String p0607ViewRoute = 'p0607View';
+const String p08ViewRoute = 'p08View';
+const String p09ViewRoute = 'p09View';
+const String p10ViewRoute = 'p10View';
+const String p11ViewRoute = 'p11View';
+const String p15ViewRoute = 'p15View';
+const String p16ViewRoute = 'p16View';
+const String p18ViewRoute = 'p18View';
+const String p20ViewRoute = 'p20View';
+const String p21ViewRoute = 'p21View';
+const String p22ViewRoute = 'p22View';

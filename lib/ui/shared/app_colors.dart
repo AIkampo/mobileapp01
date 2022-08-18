@@ -19,6 +19,14 @@ const Color gBgColor = Color(0xff9CCC6B);
 const Color yBgColor = Color(0xffEFCB6F);
 const Color oBgColor = Color(0xffE27046);
 const Color rBgColor = Color(0xffED0707);
+const Color cycleBgColorStart = Color(0xffF5AFA9);
+const Color cycleBgColorEnd = Color(0xffF5AFAA);
+const Color minusColor = Color(0xffA3290E);
+const Color greyBgColor = Color(0xffE2E2E2);
+const Color greyLineBgColor = Color(0xff545353);
+const Color premiumBeginLineBgColor = Color(0xff61496D);
+const Color premiumEndLineBgColor = Color(0xffB6ADDE);
+const Color premiumMidLineBgColor = Color(0xffD9D9D9);
 
 
 const Color defineFocus = Color.fromRGBO(49, 125, 246, 1);

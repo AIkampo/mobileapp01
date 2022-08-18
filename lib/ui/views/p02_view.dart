@@ -36,6 +36,7 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
   BuildContext _myContext;
   RandomColor _randomColor = RandomColor();
   Color _textColor;
+  bool _INIT = true;
 
   _p02ViewState() : super(p02Model()) {
     _model = controller;
@@ -44,7 +45,7 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
   @override
   void initState() {
     super.initState();
-    Fimber.i("$TAG initState: type = ${widget.type}, url = ${widget.url}");
+    Fimber.i("$TAG initState: type = ${widget.type}, url = ${widget.url}, devicePixelRatio = ${_model.globalService.devicePixelRatio}");
     _model.initData(widget.type, widget.url);
     _textColor = _randomColor.randomColor(colorBrightness:ColorBrightness.light).withOpacity(0.5);
   }
@@ -64,12 +65,19 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
   @override
   Widget build(BuildContext context) {
     _myContext = context;
+    if(_INIT) {
+      _INIT = false;
+      _model.globalService.myContext = _myContext = context;
+      _model.globalService.doResponsiveCalc(context);
+      Fimber.i("$TAG build: devicePixelRatio = ${_model.globalService.devicePixelRatio}");
+    }
     return BaseView(
       model: _model,
       mvcBuilder: (_, __) {
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             title: GestureDetector(
               onTap: (){
@@ -194,7 +202,7 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
                                     filled: false,
                                     hoverColor:  _textColor,
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                                   ),
                                   onSubmitted:  (value) {
                                     _model.globalService.hideKeyboard(_myContext);
@@ -231,7 +239,7 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
                                     filled: false,
                                     hoverColor:  _textColor,
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                                   ),
                                   onSubmitted:  (value) {
                                     _model.globalService.hideKeyboard(_myContext);
@@ -254,6 +262,7 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
                                 },
                                 onTap: (){
                                   Fimber.i('$TAG onTap: login:');
+                                  _model.navigationService.replace(routes.MainRoute);
                                 },
                                 child: Align(
                                   alignment: Alignment.center,

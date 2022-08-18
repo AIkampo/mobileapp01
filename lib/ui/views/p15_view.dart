@@ -70,6 +70,7 @@ class _p15ViewState extends StateMVC<p15View> with SingleTickerProviderStateMixi
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
@@ -144,7 +145,7 @@ class _p15ViewState extends StateMVC<p15View> with SingleTickerProviderStateMixi
                                 filled: false,
                                 hoverColor:  _textColor,
                                 border: InputBorder.none,
-                                contentPadding: EdgeInsets.only(left: 98.93.w, bottom: 14.h),
+                                contentPadding: EdgeInsets.only(left: 98.93.w, bottom: (14/_model.globalService.ratioHeight).h),
                               ),
                               onSubmitted:  (value) {
                                 _model.globalService.hideKeyboard(_myContext);
@@ -219,7 +220,7 @@ class _p15ViewState extends StateMVC<p15View> with SingleTickerProviderStateMixi
                                   filled: false,
                                   hoverColor:  _textColor,
                                   border: InputBorder.none,
-                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                                 ),
                                 onSubmitted:  (value) {
                                   _model.globalService.hideKeyboard(_myContext);

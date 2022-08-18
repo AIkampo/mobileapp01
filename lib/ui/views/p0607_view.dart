@@ -71,6 +71,7 @@ class _p0607ViewState extends StateMVC<p0607View> with SingleTickerProviderState
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             actions: <Widget>[
             ],
@@ -129,7 +130,7 @@ class _p0607ViewState extends StateMVC<p0607View> with SingleTickerProviderState
                             filled: false,
                             hoverColor:  _textColor,
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                            contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                           ),
                           onSubmitted:  (value) {
                             _model.globalService.hideKeyboard(_myContext);
@@ -168,7 +169,7 @@ class _p0607ViewState extends StateMVC<p0607View> with SingleTickerProviderState
                             filled: false,
                             hoverColor:  _textColor,
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                            contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                           ),
                           onSubmitted:  (value) {
                             _model.globalService.hideKeyboard(_myContext);

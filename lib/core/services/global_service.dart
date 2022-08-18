@@ -84,6 +84,8 @@ class GlobalService {
   File fwFile;
   String deviceIP = '';
   String OTA_Progress = '';
+  String version = '';
+  String buildNumber = '';
 
   initCacheInfo() async{
     tempDirectory = await getTemporaryDirectory();

@@ -70,6 +70,7 @@ class _p18ViewState extends StateMVC<p18View> with SingleTickerProviderStateMixi
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),

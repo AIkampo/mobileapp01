@@ -54,6 +54,64 @@ class CommonImage {
   static const String organ_perception = IMG + 'organ_perception.png';
   static const String organ_skeleton = IMG + 'organ_skeleton.png';
   static const String organ_breathe = IMG + 'organ_breathe.png';
+  static const String vegetable_black = IMG + 'vegetable_black.png';
+  static const String lab = IMG + 'lab.png';
+  static const String colors = IMG + 'colors.png';
+  static const String acupuncture = IMG + 'acupuncture.png';
+  static const String diamond_black = IMG + 'diamond_black.png';
+  static const String bg_vegetable_black = IMG + 'bg_vegetable_black.png';
+  static const String bg_lab = IMG + 'bg_lab.png';
+  static const String bg_colors = IMG + 'bg_colors.png';
+  static const String bg_acupuncture = IMG + 'bg_acupuncture.png';
+  static const String bg_diamond_black = IMG + 'bg_diamond_black.png';
+  static const String bg_grey_rectangle = IMG + 'bg_grey_rectangle.png';
+  static const String bg_organge_rect = IMG + 'bg_organge_rect.png';
+  static const String bg_transparent_rect = IMG + 'bg_transparent_rect.png';
+  static const String report_heading = IMG + 'report_heading.png';
+  static const String report_menu_rect = IMG + 'report_menu_rect.png';
+  static const String report_rect = IMG + 'report_rect.png';
+  static const String history_report = IMG + 'history_report.png';
+  static const String mypoints = IMG + 'mypoints.png';
+  static const String book = IMG + 'book.png';
+  static const String language = IMG + 'language.png';
+  static const String lock = IMG + 'lock.png';
+  static const String logout = IMG + 'logout.png';
+  static const String phone_call = IMG + 'phone_call.png';
+  static const String question = IMG + 'question.png';
+  static const String service = IMG + 'service.png';
+  static const String profile2 = IMG + 'profile.png';
+  static const String bg_day = IMG + 'bg_day.png';
+  static const String bg_period = IMG + 'bg_period.png';
+  static const String circle_filled = IMG + 'circle_filled.png';
+  static const String circle_inner = IMG + 'circle_inner.png';
+  static const String circle_outer = IMG + 'circle_outer.png';
+  static const String circle_p = IMG + 'circle_p.png';
+  static const String email = IMG + 'email.png';
+  static const String gears = IMG + 'gears.png';
+  static const String gift = IMG + 'gift.png';
+  static const String history = IMG + 'history.png';
+  static const String point = IMG + 'point.png';
+  static const String report = IMG + 'report.png';
+  static const String shop = IMG + 'shop.png';
+  static const String support = IMG + 'support.png';
+  static const String premium_content = IMG + 'premium_content.png';
+  static const String premium_heading = IMG + 'premium_heading.png';
+  static const String premium_heading2 = IMG + 'premium_heading2.png';
+  static const String premium_orange = IMG + 'premium_orange.png';
+  static const String bg_premium = IMG + 'bg_premium.png';
+  static const String premium_content_no = IMG + 'premium_content_no.png';
+  static const String confirm = IMG + 'confirm.png';
+  static const String ae_card = IMG + 'ae_card.png';
+  static const String apple_pay = IMG + 'apple_pay.png';
+  static const String google_pay = IMG + 'google_pay.png';
+  static const String line_pay_bottom = IMG + 'line_pay_bottom.png';
+  static const String line_pay_up = IMG + 'line_pay_up.png';
+  static const String visa_card = IMG + 'visa_card.png';
+  static const String line_pay = IMG + 'line_pay.png';
+
+  static const String contact_us = IMG + 'contact_us.png';
+  static const String us_content = IMG + 'us_content.png';
+  static const String us_heading = IMG + 'us_heading.png';
 
 
   static const String icon_scan = ICON + 'icon_scan.png';
@@ -61,4 +119,8 @@ class CommonImage {
   static const String icon_acc_bg = ICON + 'icon_acc_bg.png';
   static const String icon_acc_black = ICON + 'icon_acc_black.png';
   static const String icon_acc_empty = ICON + 'icon_acc_empty.png';
+  static const String icon_right = ICON + 'icon_right.png';
+  static const String icon_check = ICON + 'icon_check.png';
+  static const String icon_x = ICON + 'icon_x.png';
+
 }

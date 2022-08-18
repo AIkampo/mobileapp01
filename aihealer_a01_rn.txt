@@ -1,0 +1,8 @@
+aihealer_a01 android版本 release notice
+Editor: William
+Date: 08/18/2022
+版本: 0.1.34+2
+APP下載連結： https://reurl.cc/nOZRbd
+新增修功能：
+1.完成UI頁面設計: 共34頁, 如下頁碼:
+01~22, 34, 35 , 44, 45, 50, 51, 54, 62, 63, 77, 89, 120

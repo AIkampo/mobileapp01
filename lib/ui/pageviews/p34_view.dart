@@ -11,6 +11,7 @@ import '../../locator.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../ui/shared/icon_names.dart' as icons;
 import '../shared/app_colors.dart';
+import '../../ui/shared/route_paths.dart' as routes;
 
 class p34View extends StatefulWidget {
   @override
@@ -53,9 +54,9 @@ class _p34ViewState extends State<p34View> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor: lightBgColor,
         elevation: 0.5,
         // centerTitle: true,
-        backgroundColor: lightBgColor,
         title: GestureDetector(
           onTap: (){
             Fimber.i('$TAG onTap: title:');
@@ -115,23 +116,24 @@ class _p34ViewState extends State<p34View> {
                   width: 360.w,
                   child: Image.asset(icons.CommonImage.greybar, fit: BoxFit.fill,),
                 ),
-                SizedBox(height: 16.h,),
+                SizedBox(height: 14.h,),
                 Container(
-                  height: 34.h,
+                  height: 38.h,
                   width: 360.w,
-                  margin: EdgeInsets.only(left: 30.w, right: 32.w),
+                  margin: EdgeInsets.only(left: 28.w, right: 30.w),
                   alignment: Alignment.center,
-                  child: Stack(
-                    children: [
-                      Image.asset(icons.CommonImage.heading, fit: BoxFit.fill,),
-                      Center(
-                        child: AutoSizeText(
-                          globalService.model.keyString2("result_heading"),
-                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                          textAlign: TextAlign.right,
-                        ),
-                      ),
-                    ],
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(icons.CommonImage.heading),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  child: Center(
+                    child: AutoSizeText(
+                      globalService.model.keyString2("result_heading"),
+                      style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                      textAlign: TextAlign.right,
+                    ),
                   ),
                 ),
                 SizedBox(height: 7.h,),
@@ -155,376 +157,200 @@ class _p34ViewState extends State<p34View> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(0)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, right: 11.w),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 53.w,
-                                    width: 34.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_cycle), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[0].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_cycle:');
+                          globalService.model.navigationService.push(routes.p35ViewRoute, arguments: [globalService.model.scores9[0], globalService.model.jsonCycle]);
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(0)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, right: 11.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 53.w,
+                                      width: 34.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_cycle), fit: BoxFit.fill,),),
                                     ),
-                                  ),
-                                ],
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[0].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_cycle"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_cycle"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(1)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, right: 11.w),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 53.w,
-                                    width: 34.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_digestion), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[1].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_digestion:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(1)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, right: 11.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 53.w,
+                                      width: 34.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_digestion), fit: BoxFit.fill,),),
                                     ),
-                                  ),
-                                ],
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[1].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_digestion"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_digestion"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(2)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, right: 11.w),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 53.w,
-                                    width: 34.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_urinary), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[2].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_urinary:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(2)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, right: 11.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 53.w,
+                                      width: 34.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_urinary), fit: BoxFit.fill,),),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_urinary"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 12.h,),
-                Container(
-                  height: 90.w,
-                  width: 360.w,
-                  margin: EdgeInsets.only(left: 26.w, right: 28.w),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(3)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 72.w,
-                              margin: EdgeInsets.only(left: 12.w, top: 3.h),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 44.w,
-                                    width: 45.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_endocrine), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 27.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[3].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[2].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, ),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_endocrine"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), ),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_urinary"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(3)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 72.w,
-                              margin: EdgeInsets.only(left: 12.w, top: 3.h),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 44.w,
-                                    width: 45.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_nerve), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 27.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[4].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, ),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_nerve"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(5)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, right: 11.w),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 53.w,
-                                    width: 34.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_lymph), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[5].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_lymph"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -539,185 +365,407 @@ class _p34ViewState extends State<p34View> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(6)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 72.w,
-                              margin: EdgeInsets.only(left: 10.w,),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 26.w,
-                                    width: 48.w,
-                                    margin: EdgeInsets.only(top: 12.h,),
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_perception), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[6].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_endocrine:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(3)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 72.w,
+                                margin: EdgeInsets.only(left: 12.w, top: 3.h),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 44.w,
+                                      width: 45.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_endocrine), fit: BoxFit.fill,),),
                                     ),
-                                  ),
-                                ],
+                                    Container(
+                                      height: 53.w,
+                                      width: 27.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[3].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_perception"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, ),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_endocrine"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(7)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, right: 11.w),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 53.w,
-                                    width: 34.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_skeleton), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[7].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_nerve:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(3)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 72.w,
+                                margin: EdgeInsets.only(left: 12.w, top: 3.h),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 44.w,
+                                      width: 45.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_nerve), fit: BoxFit.fill,),),
                                     ),
-                                  ),
-                                ],
+                                    Container(
+                                      height: 53.w,
+                                      width: 27.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[4].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_skeleton"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, ),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_nerve"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 90.w,
-                        width: 90.w,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(8)), fit: BoxFit.fill,),),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 7.h,),
-                            Container(
-                              height: 53.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 12.w, right: 11.w),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 53.w,
-                                    width: 34.w,
-                                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_breathe), fit: BoxFit.fill,),),
-                                  ),
-                                  Container(
-                                    height: 53.w,
-                                    width: 23.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        AutoSizeText(
-                                          globalService.model.scores9[8].toString(),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        AutoSizeText(
-                                          globalService.model.keyString2("points"),
-                                          style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_lymph:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(5)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, right: 11.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 53.w,
+                                      width: 34.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_lymph), fit: BoxFit.fill,),),
                                     ),
-                                  ),
-                                ],
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[5].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 4.h,),
-                            Container(
-                              height: 19.w,
-                              width: 67.w,
-                              margin: EdgeInsets.only(left: 15.w, right: 11.w),
-                              alignment: Alignment.center,
-                              child: AutoSizeText(
-                                globalService.model.keyString2("organ_breathe"),
-                                style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_lymph"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 12.h,),
+                Container(
+                  height: 90.w,
+                  width: 360.w,
+                  margin: EdgeInsets.only(left: 26.w, right: 28.w),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_perception:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(6)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 72.w,
+                                margin: EdgeInsets.only(left: 10.w,),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 26.w,
+                                      width: 48.w,
+                                      margin: EdgeInsets.only(top: 12.h,),
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_perception), fit: BoxFit.fill,),),
+                                    ),
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[6].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_perception"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_skeleton:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(7)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, right: 11.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 53.w,
+                                      width: 34.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_skeleton), fit: BoxFit.fill,),),
+                                    ),
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[7].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_skeleton"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          Fimber.i('$TAG onTap: organ_breathe:');
+                        },
+                        child: Container(
+                          height: 90.w,
+                          width: 90.w,
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(globalService.model.getLevelBg(8)), fit: BoxFit.fill,),),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 7.h,),
+                              Container(
+                                height: 53.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 12.w, right: 11.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      height: 53.w,
+                                      width: 34.w,
+                                      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(icons.CommonImage.organ_breathe), fit: BoxFit.fill,),),
+                                    ),
+                                    Container(
+                                      height: 53.w,
+                                      width: 23.w,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          AutoSizeText(
+                                            globalService.model.scores9[8].toString(),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          AutoSizeText(
+                                            globalService.model.keyString2("points"),
+                                            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 4.h,),
+                              Container(
+                                height: 19.w,
+                                width: 67.w,
+                                margin: EdgeInsets.only(left: 15.w, right: 11.w),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  globalService.model.keyString2("organ_breathe"),
+                                  style: TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(), letterSpacing: 2.1),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

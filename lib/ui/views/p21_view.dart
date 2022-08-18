@@ -21,10 +21,10 @@ import '../../ui/shared/route_paths.dart' as routes;
 
 
 class p21View extends StatefulWidget {
-  final int type;
+  final int page;
   final String url;
 
-  const p21View({Key key, this.type, this.url}) : super(key: key);
+  const p21View({Key key, this.page, this.url}) : super(key: key);
 
   @override
   _p21ViewState createState() => new _p21ViewState();
@@ -44,8 +44,8 @@ class _p21ViewState extends StateMVC<p21View> with SingleTickerProviderStateMixi
   @override
   void initState() {
     super.initState();
-    Fimber.i("$TAG initState: type = ${widget.type}, url = ${widget.url}");
-    _model.initData(widget.type, widget.url);
+    Fimber.i("$TAG initState: type = ${widget.page}, url = ${widget.url}");
+    _model.initData(widget.page, widget.url);
     _textColor = _randomColor.randomColor(colorBrightness:ColorBrightness.light).withOpacity(0.5);
   }
 
@@ -70,11 +70,13 @@ class _p21ViewState extends StateMVC<p21View> with SingleTickerProviderStateMixi
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {
-                _model.navigationService.popToRootAndReplace(routes.p02ViewRoute,);
+                if(widget.page==21) _model.navigationService.popToRootAndReplace(routes.p02ViewRoute,);
+                else Navigator.pop(context);
               },
             ),
             actions: <Widget>[
@@ -175,7 +177,7 @@ class _p21ViewState extends StateMVC<p21View> with SingleTickerProviderStateMixi
                                   filled: false,
                                   hoverColor:  _textColor,
                                   border: InputBorder.none,
-                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: 16.h),
+                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: (16/_model.globalService.ratioHeight).h),
                                 ),
                                 onSubmitted:  (value) {
                                   _model.globalService.hideKeyboard(_myContext);
@@ -241,7 +243,7 @@ class _p21ViewState extends StateMVC<p21View> with SingleTickerProviderStateMixi
                                   filled: false,
                                   hoverColor:  _textColor,
                                   border: InputBorder.none,
-                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: 16.h),
+                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: (16/_model.globalService.ratioHeight).h),
                                 ),
                                 onSubmitted:  (value) {
                                   _model.globalService.hideKeyboard(_myContext);
@@ -307,7 +309,7 @@ class _p21ViewState extends StateMVC<p21View> with SingleTickerProviderStateMixi
                                   filled: false,
                                   hoverColor:  _textColor,
                                   border: InputBorder.none,
-                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: 16.h),
+                                  contentPadding: EdgeInsets.only(left: 16.w, bottom: (16/_model.globalService.ratioHeight).h),
                                 ),
                                 onSubmitted:  (value) {
                                   _model.globalService.hideKeyboard(_myContext);
@@ -740,7 +742,7 @@ class _p21ViewState extends StateMVC<p21View> with SingleTickerProviderStateMixi
                   color: Colors.transparent,
                   alignment: Alignment.bottomRight,
                   child: AutoSizeText(
-                    "V01-21",
+                    "V01-" + widget.page.toString(),
                     style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: _model.getFontFamily(),),
                     textAlign: TextAlign.end,
                   ),

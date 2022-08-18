@@ -68,6 +68,7 @@ class _p12ViewState extends StateMVC<p12View> with SingleTickerProviderStateMixi
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             title: GestureDetector(
               onTap: (){
@@ -192,7 +193,7 @@ class _p12ViewState extends StateMVC<p12View> with SingleTickerProviderStateMixi
                                     filled: false,
                                     hoverColor:  _textColor,
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                                   ),
                                   onSubmitted:  (value) {
                                     _model.globalService.hideKeyboard(_myContext);
@@ -229,7 +230,7 @@ class _p12ViewState extends StateMVC<p12View> with SingleTickerProviderStateMixi
                                     filled: false,
                                     hoverColor:  _textColor,
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: 14.h),
+                                    contentPadding: EdgeInsets.only(left: 16.w, bottom: (14/_model.globalService.ratioHeight).h),
                                   ),
                                   onSubmitted:  (value) {
                                     _model.globalService.hideKeyboard(_myContext);

@@ -71,6 +71,7 @@ class _p09ViewState extends StateMVC<p09View> with SingleTickerProviderStateMixi
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             actions: <Widget>[
             ],
@@ -121,7 +122,7 @@ class _p09ViewState extends StateMVC<p09View> with SingleTickerProviderStateMixi
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: btn_ok:');
-                          _model.navigationService.popToRootAndReplace(routes.p21ViewRoute,);
+                          _model.navigationService.popToRootAndReplace(routes.p21ViewRoute, arguments: [21]);
                         },
                         child: Container(
                           height: 40.h,

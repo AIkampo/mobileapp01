@@ -71,6 +71,7 @@ class _p22ViewState extends StateMVC<p22View> with SingleTickerProviderStateMixi
         return _model.bDataReady? Scaffold(
           key: _model.scaffoldKey,
           appBar: AppBar(
+            backgroundColor: lightBgColor,
             elevation: 0.5,
             actions: <Widget>[
             ],

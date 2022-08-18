@@ -20,6 +20,9 @@ import '../../ui/pageviews/pagethree.dart';
 import '../../ui/pageviews/pagetwo.dart';
 import '../../ui/pageviews/pageone.dart';
 import '../pageviews/p34_view.dart';
+import '../pageviews/p44_view.dart';
+import '../pageviews/p50_view.dart';
+import '../pageviews/p77_view.dart';
 import '../shared/app_colors.dart';
 
 
@@ -39,7 +42,7 @@ class _MainViewState extends StateMVC<MainView> with SingleTickerProviderStateMi
 
   PageController _pageController;
   BuildContext _myContext;
-  List<Widget> pages=[p34View(), PageTwo(), PageThree(), PageFour(), PageFive(), //0~4
+  List<Widget> pages=[p34View(), p44View(), p50View(), PageFour(), p77View(), //0~4
   ];
   bool isNavibarVisible = true;
   bool _INIT = true;

@@ -108,10 +108,62 @@ class CommonImage {
   static const String line_pay_up = IMG + 'line_pay_up.png';
   static const String visa_card = IMG + 'visa_card.png';
   static const String line_pay = IMG + 'line_pay.png';
-
   static const String contact_us = IMG + 'contact_us.png';
   static const String us_content = IMG + 'us_content.png';
   static const String us_heading = IMG + 'us_heading.png';
+  static const String bg_g_level = IMG + 'bg_g_level.png';
+  static const String bg_y_level = IMG + 'bg_y_level.png';
+  static const String bg_o_level = IMG + 'bg_o_level.png';
+  static const String bg_r_level = IMG + 'bg_r_level.png';
+  static const String heart_diag = IMG + 'heart_diag.png';
+  static const String apple_black = IMG + 'apple_black.png';
+  static const String report_view = IMG + 'report_view.png';
+  static const String diamond_member = IMG + 'diamond_member.png';
+  static const String chain_clinics = IMG + 'chain_clinics.png';
+  static const String services = IMG + 'services.png';
+  static const String service_border = IMG + 'service_border.png';
+  static const String border_double = IMG + 'border_double.png';
+  static const String border_double_rect = IMG + 'border_double_rect.png';
+  static const String bracelet_black = IMG + 'bracelet_black.png';
+  static const String btn_double = IMG + 'btn_double.png';
+  static const String cancel_rect = IMG + 'cancel_rect.png';
+  static const String cancel_red = IMG + 'cancel_red.png';
+  static const String circle_diag = IMG + 'circle_diag.png';
+  static const String exercise = IMG + 'exercise.png';
+  static const String food = IMG + 'food.png';
+  static const String icon_24h = IMG + 'icon_24h.png';
+  static const String necklacce_black = IMG + 'necklacce_black.png';
+  static const String no_drink = IMG + 'no_drink.png';
+  static const String no_smoking = IMG + 'no_smoking.png';
+  static const String pregnate = IMG + 'pregnate.png';
+  static const String start_diag = IMG + 'start_diag.png';
+  static const String border_heading = IMG + 'border_heading.png';
+  static const String border_height = IMG + 'border_height.png';
+  static const String border_kgcm = IMG + 'border_kgcm.png';
+  static const String border_question = IMG + 'border_question.png';
+  static const String border_yesno = IMG + 'border_yesno.png';
+  static const String bluetooth = IMG + 'bluetooth.png';
+  static const String close = IMG + 'close.png';
+  static const String dash = IMG + 'dash.png';
+  static const String myapp = IMG + 'myapp.png';
+  static const String nodiag_rect = IMG + 'nodiag_rect.png';
+  static const String nodiag_rect_small = IMG + 'nodiag_rect_small.png';
+  static const String thinking = IMG + 'thinking.png';
+  static const String tips = IMG + 'tips.png';
+  static const String tips_rect = IMG + 'tips_rect.png';
+  static const String loading_1 = IMG + 'loading_1.jpg';
+  static const String loading_2 = IMG + 'loading_2.jpg';
+  static const String loading_3 = IMG + 'loading_3.jpg';
+  static const String loading_4 = IMG + 'loading_4.jpg';
+  static const String bg_elipse = IMG + 'bg_elipse.png';
+  static const String dot_dark = IMG + 'dot_dark.png';
+  static const String dot_white = IMG + 'dot_white.png';
+  static const String loading_65 = IMG + 'loading_65.png';
+  static const String loading_80 = IMG + 'loading_80.png';
+  static const String loading_100 = IMG + 'loading_100.png';
+  static const String btn_result = IMG + 'btn_result.png';
+
+
 
 
   static const String icon_scan = ICON + 'icon_scan.png';
@@ -122,5 +174,6 @@ class CommonImage {
   static const String icon_right = ICON + 'icon_right.png';
   static const String icon_check = ICON + 'icon_check.png';
   static const String icon_x = ICON + 'icon_x.png';
+  static const String icon_management = ICON + 'icon_management.png';
 
 }

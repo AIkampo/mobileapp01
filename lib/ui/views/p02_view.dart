@@ -262,7 +262,8 @@ class _p02ViewState extends StateMVC<p02View> with SingleTickerProviderStateMixi
                                 },
                                 onTap: (){
                                   Fimber.i('$TAG onTap: login:');
-                                  _model.navigationService.replace(routes.MainRoute);
+                                  // _model.navigationService.replace(routes.MainRoute);
+                                  _model.navigationService.push(routes.p23ViewRoute);
                                 },
                                 child: Align(
                                   alignment: Alignment.center,

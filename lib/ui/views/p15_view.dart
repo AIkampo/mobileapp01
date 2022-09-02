@@ -155,6 +155,7 @@ class _p15ViewState extends StateMVC<p15View> with SingleTickerProviderStateMixi
                               onChanged: (value) {
                                 Fimber.i('$TAG 0: onChanged: value = $value');
                                 _model.account = _model.accountCont.text;
+                                Fimber.i('$TAG 0: onChanged: value = $value, phoneno = ${_model.account}');
                               },
                               onEditingComplete: () {
                               },
@@ -228,16 +229,27 @@ class _p15ViewState extends StateMVC<p15View> with SingleTickerProviderStateMixi
                                   _model.password = _model.passwordCont.text;
                                 },
                                 onChanged: (value) {
-                                  Fimber.i('$TAG 0: onChanged: value = $value');
                                   _model.password = _model.passwordCont.text;
+                                  Fimber.i('$TAG 0: onChanged: value = $value, _model.password = ${_model.password}');
                                 },
                                 onEditingComplete: () {
                                 },
                               ),
                             ),
                             GestureDetector(
-                              onTap: (){
-                                Fimber.i('$TAG onTap: get_verify:');
+                              onTap: () async {
+                                String _phoneno = _model.account;
+                                if(_phoneno.length==10&&_phoneno[0]=='0') {
+                                  _phoneno = _model.account.substring(1);
+                                }
+                                String _phoneNumberVal = '+886' + _phoneno;
+                                Fimber.i('$TAG onTap: get_verify: _phoneNumberVal = $_phoneNumberVal');
+                                await _model.beginPhoneAuth(
+                                    phoneNumber: _phoneNumberVal,
+                                    onCodeSent: () async {
+                                      Fimber.i('$TAG get_verify: onCodeSent:');
+                                  },
+                                );
                               },
                               child: Container(
                                 height: 33.h,
@@ -261,10 +273,19 @@ class _p15ViewState extends StateMVC<p15View> with SingleTickerProviderStateMixi
                       GestureDetector(
                         onLongPress: (){
                           Fimber.i('$TAG onLongPress: get_verify:');
-                          _model.show_verify_error();
                         },
-                        onTap: (){
-                          Fimber.i('$TAG onTap: btn_verify:');
+                        onTap: () async {
+                          Fimber.i('$TAG onTap: btn_verify: password = ${_model.password}');
+                          final smsCodeVal = _model.password;
+                          if (smsCodeVal == null || smsCodeVal.isEmpty) {
+                            _model.showSnackBar2('Enter SMS verification code.');
+                            return;
+                          }
+                          final phoneVerifiedUser = await _model.verifySmsCode(smsCode: smsCodeVal,);
+                          if (phoneVerifiedUser == null) {
+                            _model.show_verify_error();
+                            return;
+                          }
                           _model.navigationService.popToRootAndReplace(routes.p16ViewRoute,);
                         },
                         child: Container(

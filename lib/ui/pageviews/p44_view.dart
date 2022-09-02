@@ -3,15 +3,13 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:random_color/random_color.dart';
 
 import '../../core/services/global_service.dart';
 import '../../core/services/navigation_service.dart';
 import '../../locator.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../ui/shared/icon_names.dart' as icons;
-import '../shared/app_colors.dart';
 import '../../ui/shared/route_paths.dart' as routes;
 
 class p44View extends StatefulWidget {
@@ -55,44 +53,7 @@ class _p44ViewState extends State<p44View> {
     }
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(
-        elevation: 0.5,
-        // centerTitle: true,
-        backgroundColor: lightBgColor,
-        title: GestureDetector(
-          onTap: (){
-            Fimber.i('$TAG onTap: title:');
-          },
-          child: Container(
-            height: 40.h,
-            // margin: EdgeInsets.all(10.h),
-            alignment: Alignment.centerLeft,
-            child: Image.asset(icons.CommonImage.logo, fit: BoxFit.fitHeight,),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: ImageIcon(AssetImage(icons.CommonImage.icon_scan), color: Colors.black,),
-            onPressed: (){
-              Fimber.i('$TAG onTap: icon_scan:');
-            },
-          ),
-          GestureDetector(
-            onTap: (){
-              Fimber.i('$TAG onTap: icon_acc:');
-            },
-            child: CircleAvatar(
-              radius: 15.w,
-              backgroundColor: accBgColor,
-              child: AutoSizeText(
-                'ACC',
-                style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: globalService.getAppBar(),
       body: Stack(
         children: [
           Container(
@@ -216,7 +177,8 @@ class _p44ViewState extends State<p44View> {
                             IconButton(
                               icon: Icon(Icons.chevron_right),
                               onPressed: () {
-                                Fimber.i('$TAG bg_lab:');
+                                Fimber.i('$TAG Micro:');
+                                globalService.model.navigationService.push(routes.p46ViewRoute, arguments: [46, globalService.model.jsonMicro]);
                               },
                             ),
                           ],
@@ -270,6 +232,7 @@ class _p44ViewState extends State<p44View> {
                               icon: Icon(Icons.chevron_right),
                               onPressed: () {
                                 Fimber.i('$TAG health_energy_guidelines:');
+                                globalService.model.navigationService.push(routes.p46ViewRoute, arguments: [47, globalService.model.jsonEnerge]);
                               },
                             ),
                           ],
@@ -323,6 +286,7 @@ class _p44ViewState extends State<p44View> {
                               icon: Icon(Icons.chevron_right),
                               onPressed: () {
                                 Fimber.i('$TAG health_acupuncture_guidelines:');
+                                globalService.model.navigationService.push(routes.p46ViewRoute, arguments: [48, globalService.model.jsonAcupuncture]);
                               },
                             ),
                           ],
@@ -376,6 +340,7 @@ class _p44ViewState extends State<p44View> {
                               icon: Icon(Icons.chevron_right),
                               onPressed: () {
                                 Fimber.i('$TAG health_diamond_guidelines:');
+                                globalService.model.navigationService.push(routes.p46ViewRoute, arguments: [49, globalService.model.jsonDiamond]);
                               },
                             ),
                           ],

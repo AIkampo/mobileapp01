@@ -56,44 +56,7 @@ class _p50ViewState extends State<p50View> {
     }
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(
-        elevation: 0.5,
-        // centerTitle: true,
-        backgroundColor: lightBgColor,
-        title: GestureDetector(
-          onTap: (){
-            Fimber.i('$TAG onTap: title:');
-          },
-          child: Container(
-            height: 40.h,
-            // margin: EdgeInsets.all(10.h),
-            alignment: Alignment.centerLeft,
-            child: Image.asset(icons.CommonImage.logo, fit: BoxFit.fitHeight,),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: ImageIcon(AssetImage(icons.CommonImage.icon_scan), color: Colors.black,),
-            onPressed: (){
-              Fimber.i('$TAG onTap: icon_scan:');
-            },
-          ),
-          GestureDetector(
-            onTap: (){
-              Fimber.i('$TAG onTap: icon_acc:');
-            },
-            child: CircleAvatar(
-              radius: 15.w,
-              backgroundColor: accBgColor,
-              child: AutoSizeText(
-                'ACC',
-                style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: globalService.getAppBar(),
       body: Stack(
         children: [
           Container(
@@ -254,7 +217,8 @@ class _p50ViewState extends State<p50View> {
                         icon: Icon(Icons.chevron_right),
                         onPressed: () {
                           Fimber.i('$TAG Premium_member:');
-                          globalService.model.navigationService.push(routes.p62ViewRoute,);                        },
+                          globalService.model.navigationService.push(routes.p62ViewRoute,);
+                          },
                       ),
                     ],
                   ),

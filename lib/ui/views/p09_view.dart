@@ -7,18 +7,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:random_color/random_color.dart';
-import '../../core/services/global_service.dart';
-import '../../locator.dart';
-import 'package:mvc_pattern/mvc_pattern.dart';
-import '../../core/viewmodels/template_model.dart';
-import '../../ui/views/base_view.dart';
-import '../../ui/shared/icon_names.dart' as icons;
+
 import '../../core/viewmodels/p02_model.dart';
-import '../shared/app_colors.dart';
+import '../../ui/shared/icon_names.dart' as icons;
 import '../../ui/shared/route_paths.dart' as routes;
-import 'package:checkbox_grouped/checkbox_grouped.dart';
+import '../../ui/views/base_view.dart';
+import '../shared/app_colors.dart';
 
 class p09View extends StatefulWidget {
   final int type;

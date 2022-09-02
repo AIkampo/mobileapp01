@@ -7,20 +7,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:random_color/random_color.dart';
-import '../../core/services/global_service.dart';
+
 import '../../core/viewmodels/p45Model.dart';
-import '../../locator.dart';
-import 'package:mvc_pattern/mvc_pattern.dart';
-import '../../core/viewmodels/template_model.dart';
-import '../../ui/views/base_view.dart';
 import '../../ui/shared/icon_names.dart' as icons;
-import '../../core/viewmodels/p02_model.dart';
+import '../../ui/views/base_view.dart';
 import '../shared/app_colors.dart';
-import '../../ui/shared/route_paths.dart' as routes;
-import 'package:checkbox_grouped/checkbox_grouped.dart';
-import 'package:flutter_chart_csx/flutter_chart_csx.dart';
 
 class p45View extends StatefulWidget {
   final int score;
@@ -63,132 +57,6 @@ class _p45ViewState extends StateMVC<p45View> with SingleTickerProviderStateMixi
     super.dispose();
   }
 
-  Widget _buildSingleChartLine(context, _index,) {
-    int _length = _model.riskChartLines.length;
-    Fimber.i('$TAG _buildSingleChartLine: _index = $_index, _length = $_length');
-    if(_length==0) _model.initChart();
-    Widget _chartLine = Stack(
-      children: [
-        ChartLine(
-          backgroundColor: Colors.white,
-          chartBeanSystems: [_model.riskChartLines[_index]],
-          size: Size(265.w, 157.h),
-          baseBean: BaseBean(
-            // isShowBorderTop: true,
-            // isShowBorderRight: true,
-            // isLeftYDialSub: true,
-            basePadding: EdgeInsets.only(top: 10.h, bottom: 20.h, left: 20.w, right: 0.w),
-            isShowX: true,
-            isShowYScale: true,
-            isShowHintX: true,
-            isHintLineImaginary: true,
-            xColor: Colors.black,
-            yColor: Colors.black,
-            rulerWidth: 0,
-            yMax: 100,
-            xyLineWidth: 0.5,
-            yDialValues: [
-              DialStyleY(
-                title: '0',
-                titleStyle: TextStyle(fontSize: 10.0.sp, color: Colors.black),
-                positionRetioy: 0 / 100.0,
-              ),
-              DialStyleY(
-                title: '20',
-                titleStyle: TextStyle(fontSize: 10.0.sp, color: Colors.black),
-                positionRetioy: 20 / 100.0,
-              ),
-              DialStyleY(
-                title: '40',
-                titleStyle: TextStyle(fontSize: 10.0.sp, color: Colors.black),
-                positionRetioy: 40 / 100.0,
-              ),
-              DialStyleY(
-                title: '60',
-                titleStyle: TextStyle(fontSize: 10.0.sp, color: Colors.black),
-                positionRetioy: 60 / 100.0,
-              ),
-              DialStyleY(
-                title: '80',
-                titleStyle: TextStyle(fontSize: 10.0.sp, color: Colors.black),
-                positionRetioy: 80 / 100.0,
-              ),
-              DialStyleY(
-                title: '100',
-                titleStyle: TextStyle(fontSize: 10.0.sp, color: Colors.black),
-                positionRetioy: 100 / 100.0,
-              ),
-            ],
-
-          ),
-        ),
-      ],
-    );
-    return _chartLine;
-  }
-
-  List<Widget> _get10Rows(){
-    List<Widget> widgets = <Widget>[];
-    widgets.clear();
-    int _length = _model.lengthPathology;
-    for(int i=0; i<_length; i++){
-      Widget _widget = Container(
-        height: 20.h,
-        decoration: BoxDecoration(
-          // color: _randomColor.randomColor(colorBrightness:ColorBrightness.light).withOpacity(0.5),
-          shape: BoxShape.rectangle,
-          // borderRadius: BorderRadius.circular(2),
-          border : Border(
-            top: BorderSide(width: 1.0.w, color: Colors.black),
-            left: BorderSide(width: 1.0.w, color: Colors.black),
-            right: BorderSide(width: 1.0.w, color: Colors.black),
-            bottom: BorderSide(width: i==9?1.0.w:0.w, color: Colors.black),
-          ),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              width: 205.w,
-              alignment: Alignment.center,
-              child: AutoSizeText(
-                _model.getDescription(i),
-                style: TextStyle(fontSize: 14.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: _model.getFontFamily(),),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Container(
-              width: 1.w,
-              color: Colors.black,
-            ),
-            Container(
-              width: 90.w,
-              // color: _randomColor.randomColor(colorBrightness:ColorBrightness.light).withOpacity(0.5),
-              padding: EdgeInsets.all(2.5.h),
-              alignment: Alignment.center,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Image.asset(_model.getDImage(i), fit: BoxFit.fitHeight,),
-                  ),
-                  Center(
-                    child: AutoSizeText(
-                      _model.getDChar(i),
-                      style: TextStyle(fontSize: 14.sp, color: Colors.black, fontWeight: FontWeight.normal, fontFamily: _model.getFontFamily(),),
-                      textAlign: TextAlign.end,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      );
-      widgets.add(_widget);
-    }
-    return widgets;
-  }
 
   Widget _buildFoodGood(bool _good){
     List<Widget> _widgets = _buildFoodGoodlist(_good);

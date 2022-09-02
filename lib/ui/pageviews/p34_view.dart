@@ -3,15 +3,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/services/global_service.dart';
 import '../../core/services/navigation_service.dart';
 import '../../locator.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../ui/shared/icon_names.dart' as icons;
-import '../shared/app_colors.dart';
 import '../../ui/shared/route_paths.dart' as routes;
+import '../shared/app_colors.dart';
 
 class p34View extends StatefulWidget {
   @override
@@ -53,44 +52,7 @@ class _p34ViewState extends State<p34View> {
     }
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: lightBgColor,
-        elevation: 0.5,
-        // centerTitle: true,
-        title: GestureDetector(
-          onTap: (){
-            Fimber.i('$TAG onTap: title:');
-          },
-          child: Container(
-            height: 40.h,
-            // margin: EdgeInsets.all(10.h),
-            alignment: Alignment.centerLeft,
-            child: Image.asset(icons.CommonImage.logo, fit: BoxFit.fitHeight,),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: ImageIcon(AssetImage(icons.CommonImage.icon_scan), color: Colors.black,),
-            onPressed: (){
-              Fimber.i('$TAG onTap: icon_scan:');
-            },
-          ),
-          GestureDetector(
-            onTap: (){
-              Fimber.i('$TAG onTap: icon_acc:');
-            },
-            child: CircleAvatar(
-              radius: 15.w,
-              backgroundColor: accBgColor,
-              child: AutoSizeText(
-                'ACC',
-                style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.normal, fontFamily: globalService.model.getFontFamily(),),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: globalService.getAppBar(),
       body: Stack(
         children: [
           Container(
@@ -160,7 +122,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_cycle:');
-                          globalService.model.navigationService.push(routes.p35ViewRoute, arguments: [globalService.model.scores9[0], globalService.model.jsonCycle]);
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[0], globalService.model.jsonCycle, 35]);
                         },
                         child: Container(
                           height: 90.w,
@@ -226,6 +188,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_digestion:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[1], globalService.model.jsonDigestion, 36]);
                         },
                         child: Container(
                           height: 90.w,
@@ -291,6 +254,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_urinary:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[2], globalService.model.jsonUrinary, 37]);
                         },
                         child: Container(
                           height: 90.w,
@@ -368,6 +332,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_endocrine:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[3], globalService.model.jsonEndocrine, 38]);
                         },
                         child: Container(
                           height: 90.w,
@@ -433,6 +398,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_nerve:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[4], globalService.model.jsonNerve, 39]);
                         },
                         child: Container(
                           height: 90.w,
@@ -498,6 +464,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_lymph:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[5], globalService.model.jsonLymph, 40]);
                         },
                         child: Container(
                           height: 90.w,
@@ -575,6 +542,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_perception:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[6], globalService.model.jsonPerception, 41]);
                         },
                         child: Container(
                           height: 90.w,
@@ -641,6 +609,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_skeleton:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[7], globalService.model.jsonSkeleton, 42]);
                         },
                         child: Container(
                           height: 90.w,
@@ -706,6 +675,7 @@ class _p34ViewState extends State<p34View> {
                       GestureDetector(
                         onTap: (){
                           Fimber.i('$TAG onTap: organ_breathe:');
+                          globalService.model.navigationService.push(routes.p35to43ViewRoute, arguments: [globalService.model.scores9[8], globalService.model.jsonBreathe, 43]);
                         },
                         child: Container(
                           height: 90.w,

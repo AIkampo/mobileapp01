@@ -2,28 +2,20 @@
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:location/location.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:wifi_info_plugin/wifi_info_plugin.dart';
 
 import '../../core/viewmodels/main_model.dart';
+import '../../ui/pageviews/pagefour.dart';
 import '../../ui/views/base_view.dart';
 import '../../ui/widgets/nav_button.dart';
-import 'package:wifi_info_plugin/wifi_info_plugin.dart';
-import '../../ui/pageviews/pagefive.dart';
-import '../../ui/pageviews/pagefour.dart';
-import '../../ui/pageviews/pagethree.dart';
-import '../../ui/pageviews/pagetwo.dart';
-import '../../ui/pageviews/pageone.dart';
 import '../pageviews/p34_view.dart';
 import '../pageviews/p44_view.dart';
 import '../pageviews/p50_view.dart';
 import '../pageviews/p77_view.dart';
-import '../shared/app_colors.dart';
 
 
 class MainView extends StatefulWidget {

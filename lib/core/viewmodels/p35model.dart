@@ -12,14 +12,17 @@ import '../../ui/shared/icon_names.dart' as icons;
 import '../../vo/groupscore_response_vo.dart';
 import 'base_model.dart';
 
-class p35Model extends BaseModel {
-  final TAG = "p35Model:";
+class p35model extends BaseModel {
+  final TAG = "p35model:";
   final NavigationService _navigationService = locator<NavigationService>();
   ScrollController scrollController;
 
   bool bDataReady = true;
+
+  int get score => _score;
   int _score;
   String _json;
+  int _page;
   groupscore_response_vo _groupscore_responseVo;
   List<ChartBeanSystem> riskChartLines = <ChartBeanSystem>[];
   int _lengthRiskChartLines = 9;
@@ -28,7 +31,7 @@ class p35Model extends BaseModel {
   List<String> _descriptions = <String>[];
   int lengthPathology = 10;
 
-  p35Model() {
+  p35model() {
     this.scaffoldKey = new GlobalKey<ScaffoldState>();
   }
 
@@ -50,7 +53,7 @@ class p35Model extends BaseModel {
 
   }
 
-  initData(int _score, String _json) {
+  initData(int _score, String _json, int _page) {
     // Connecting.show(context: context);
     this._score = _score;
     this._json = _json;
@@ -74,6 +77,76 @@ class p35Model extends BaseModel {
   String getDescription(int _index){
     String _value = _descriptions[_index];
     Fimber.i('$TAG getDescription: _descriptions = $_descriptions');
+    return _value;
+  }
+
+  String getImageString(int _index){
+    String _value = '';
+    switch(_index){
+      case 0:
+        _value = icons.CommonImage.organ_cycle;
+        break;
+      case 1:
+        _value = icons.CommonImage.organ_digestion;
+        break;
+      case 2:
+        _value = icons.CommonImage.organ_urinary;
+        break;
+      case 3:
+        _value = icons.CommonImage.organ_endocrine;
+        break;
+      case 4:
+        _value = icons.CommonImage.organ_nerve;
+        break;
+      case 5:
+        _value = icons.CommonImage.organ_lymph;
+        break;
+      case 6:
+        _value = icons.CommonImage.organ_perception;
+        break;
+      case 7:
+        _value = icons.CommonImage.organ_skeleton;
+        break;
+      case 8:
+        _value = icons.CommonImage.organ_breathe;
+        break;
+    }
+    Fimber.i('$TAG getImageString: _index = $_index, _value = $_value');
+    return _value;
+  }
+
+  String getSystemString(int _index){
+    String _value = '';
+    switch(_index){
+      case 0:
+        _value = keyString2('organ_cycle');
+        break;
+      case 1:
+        _value = keyString2('organ_digestion');
+        break;
+      case 2:
+        _value = keyString2('organ_urinary');
+        break;
+      case 3:
+        _value = keyString2('organ_endocrine');
+        break;
+      case 4:
+        _value = keyString2('organ_nerve');
+        break;
+      case 5:
+        _value = keyString2('organ_lymph');
+        break;
+      case 6:
+        _value = keyString2('organ_perception');
+        break;
+      case 7:
+        _value = keyString2('organ_skeleton');
+        break;
+      case 8:
+        _value = keyString2('organ_breathe');
+        break;
+    }
+    Fimber.i('$TAG getSystemString: _value = $_value');
     return _value;
   }
 
@@ -189,4 +262,5 @@ else templist2.Add("em-smiley");
     Fimber.i('$TAG navi_bar:');
   }
 
+  int get page => _page;
 }

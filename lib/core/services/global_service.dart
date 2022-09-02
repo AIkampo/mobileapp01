@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,7 +18,10 @@ import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../ui/shared/app_colors.dart';
 import '../viewmodels/main_model.dart';
+import '../../ui/shared/icon_names.dart' as icons;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum PermissionGroup {
 /// Android: Fine and Coarse Location
@@ -86,6 +90,54 @@ class GlobalService {
   String OTA_Progress = '';
   String version = '';
   String buildNumber = '';
+
+
+  Widget getAppBar(){
+    return AppBar(
+      backgroundColor: lightBgColor,
+      elevation: 0.5,
+      // centerTitle: true,
+      title: GestureDetector(
+        onTap: (){
+          Fimber.i('onTap: title:');
+        },
+        child: Container(
+          height: 40.h,
+          // margin: EdgeInsets.all(10.h),
+          alignment: Alignment.centerLeft,
+          child: Image.asset(icons.CommonImage.logo, fit: BoxFit.fitHeight,),
+        ),
+      ),
+      actions: <Widget>[
+        IconButton(
+          icon: ImageIcon(AssetImage(icons.CommonImage.icon_management), color: Colors.black,),
+          onPressed: (){
+            Fimber.i('onTap: icon_management:');
+          },
+        ),
+        IconButton(
+          icon: ImageIcon(AssetImage(icons.CommonImage.icon_scan), color: Colors.black,),
+          onPressed: (){
+            Fimber.i('onTap: icon_scan:');
+          },
+        ),
+        GestureDetector(
+          onTap: (){
+            Fimber.i('onTap: icon_acc:');
+          },
+          child: CircleAvatar(
+            radius: 15.w,
+            backgroundColor: accBgColor,
+            child: AutoSizeText(
+              'ACC',
+              style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.normal, fontFamily: model.getFontFamily(),),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   initCacheInfo() async{
     tempDirectory = await getTemporaryDirectory();

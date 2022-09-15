@@ -162,7 +162,18 @@ class CommonImage {
   static const String loading_80 = IMG + 'loading_80.png';
   static const String loading_100 = IMG + 'loading_100.png';
   static const String btn_result = IMG + 'btn_result.png';
+  static const String physique_1 = IMG + 'physique_1.png';
+  static const String physique_2 = IMG + 'physique_2.png';
+  static const String physique_3 = IMG + 'physique_3.png';
+  static const String physique_4 = IMG + 'physique_4.png';
+  static const String physique_5 = IMG + 'physique_5.png';
+  static const String physique_6 = IMG + 'physique_6.png';
+  static const String physique_7 = IMG + 'physique_7.png';
+  static const String physique_8 = IMG + 'physique_8.png';
+  static const String physique_9 = IMG + 'physique_9.png';
 
+  static const String loading_dot9 = IMG + 'loading.9.png';
+  static const String icon_download = ICON + 'icon_download.png';
 
 
 

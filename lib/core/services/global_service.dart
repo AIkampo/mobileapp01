@@ -22,6 +22,7 @@ import '../../ui/shared/app_colors.dart';
 import '../viewmodels/main_model.dart';
 import '../../ui/shared/icon_names.dart' as icons;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../ui/shared/route_paths.dart' as routes;
 
 enum PermissionGroup {
 /// Android: Fine and Coarse Location
@@ -66,7 +67,7 @@ class GlobalService {
   double bLoading = -1;
   ValueNotifier vnLoading;
   bool bIsAndroid = true;
-  MainModel model;
+  var model;
   Size defaultScreenSize = const Size(360, 640);
   int selectedIndex = 0;
   int DeviceType0;
@@ -134,6 +135,29 @@ class GlobalService {
               textAlign: TextAlign.center,
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget getAppBarDownload(){
+    return AppBar(
+      backgroundColor: lightBgColor,
+      elevation: 0.5,
+      // centerTitle: true,
+      actions: <Widget>[
+        IconButton(
+          icon: ImageIcon(AssetImage(icons.CommonImage.icon_download), color: Colors.black.withOpacity(0.5),),
+          onPressed: (){
+            Fimber.i('onTap: icon_download:');
+          },
+        ),
+        IconButton(
+          icon: ImageIcon(AssetImage(icons.CommonImage.icon_scan), color: Colors.black,),
+          onPressed: (){
+            Fimber.i('onTap: icon_scan:');
+            model.navigationService.popToRootAndReplace(routes.p27ViewRoute,);
+          },
         ),
       ],
     );

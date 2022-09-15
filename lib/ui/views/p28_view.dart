@@ -303,8 +303,10 @@ class _p28ViewState extends StateMVC<p28View> with SingleTickerProviderStateMixi
                       SizedBox(height: 20.h,),
                       GestureDetector(
                         onTap: (){
-                          Fimber.i('$TAG onTap: btn_result:');
-                          _model.getRandom();
+                          int _page = _model.getRandom() + 1;
+                          _page = 1;
+                          Fimber.i('$TAG onTap: btn_result: _page = $_page');
+                          _model.navigationService.popToRootAndReplace(routes.p28xViewRoute, arguments: [_page]);
                         },
                         child: Container(
                           height: 47.h,
